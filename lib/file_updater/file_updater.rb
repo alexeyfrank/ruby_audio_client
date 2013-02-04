@@ -57,6 +57,7 @@ module AudioClient
         #if e.is_a?(SocketError) || e.is_a?(Timeout::Error)
         sync.logger.error "Произошла ошибка класса: #{ e.class }"
         sync.logger.error "Сообщение об ошибке: #{ e.message }"
+        sync.logger.error "Backtrace: #{e.backtrace}"
     
         sleeping_timeout = configus.sleeping_time_out
         puts "Таймаут до перезапуска: #{sleeping_timeout} секунд ..."

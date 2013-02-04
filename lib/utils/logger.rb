@@ -7,9 +7,11 @@ module AudioClient
         unless Dir.exist? File.dirname(@file)
           FileUtils.mkdir_p File.dirname(@file)
         end
+        puts "File is exist? #{File.exist? @file}"
         if File.exist? @file
           File.delete @file
         end
+        puts "File is exist? #{File.exist? @file}"
       end
   
       def info(msg)
@@ -42,7 +44,7 @@ module AudioClient
         def prepend_to_file(msg)
           text = File.open(@file){ |file| file.read }
           File.open(@file, 'w') do |f|
-            f.write("#{text}\n#{msg}")
+            f.write("#{msg}\n#{text}")
           end
         end
     end

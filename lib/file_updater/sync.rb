@@ -11,7 +11,7 @@ module AudioClient
         @config = config
       end
 
-      EXCLUDED_LOCAL_PATHS=[".", ".."]
+      EXCLUDED_LOCAL_PATHS=[".", "..", "log"]
 
       def fetch_from_remote
         files_found = []
@@ -90,8 +90,8 @@ module AudioClient
                 else
                   logger.info("Загружаем файл #{remote_path} на сервер ...")
                   client.upload(remote_path, open(local_path).read)
-                  client.find(remote_path).modified
                   logger.info("Файл #{remote_path} успешно загружен")
+                  client.find(remote_path).modified
                 end
               end
             end
@@ -114,10 +114,10 @@ module AudioClient
       end
 
       def write_log_file
-        current_time = Time.now + (4*60*60) # add 4 hours
+        current_time = Time.now + 4.hours # add 4 hours
         current_time = current_time.strftime("%Y-%m-%d в %H:%M:%S")
-        logger.prepend_plain(shop_address)
         logger.prepend_plain(current_time)
+        logger.prepend_plain(shop_address)
       end
       # 
       # def sync!

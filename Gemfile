@@ -8,3 +8,5 @@ gem "rspec"
 gem "configus"
 
 gem 'whenever'
+
+gem 'activesupport'

@@ -35,6 +35,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   configus
   daemons
   dropbox-api
