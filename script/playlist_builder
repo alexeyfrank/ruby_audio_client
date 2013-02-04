@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require File.dirname(File.absolute_path(__FILE__)) + "/../config/application"
+
+AudioClient::Application.new(:dev) do
+  AudioClient::PlaylistBuilder.build
+end
