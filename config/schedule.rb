@@ -9,10 +9,10 @@ set :output, "#{app_dir_path}/logs/cron.log"
 
 env :PATH, "#{ENV['PATH']}:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
 
-every 1.minute do # Many shortcuts available: :hour, :day, :month, :year, :reboot
-  command "#{app_dir_path}/script/file_updater"
-  command "#{app_dir_path}/script/playlist_builder"
-  command "#{app_dir_path}/script/music_player"
+every :reboot do # Many shortcuts available: :hour, :day, :month, :year, :reboot
+  command "cd #{app_dir_path} && ./script/file_updater"
+  command "cd #{app_dir_path} && ./script/playlist_builder"
+  command "cd #{app_dir_path} && ./script/music_player"
 end
 
 # Example:
