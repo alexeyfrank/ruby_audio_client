@@ -7,8 +7,7 @@ app_dir_path = File.dirname(File.dirname(File.expand_path(__FILE__)))
 
 set :output, "#{app_dir_path}/logs/cron.log"
 
-env :PATH, ENV['PATH']
-env :PATH, '/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin'
+env :PATH, "#{ENV['PATH']}:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
 
 every :reboot do # Many shortcuts available: :hour, :day, :month, :year, :reboot
   command "#{app_dir_path}/script/file_updater"
