@@ -3,6 +3,14 @@
 # It's helpful, but not entirely necessary to understand cron before proceeding.
 # http://en.wikipedia.org/wiki/Cron
 
+app_dir_path = File.dirname(File.expand_path(__FILE__))
+
+every :reboot do # Many shortcuts available: :hour, :day, :month, :year, :reboot
+  command "#{app_dir_path}/script/file_updater"
+  command "#{app_dir_path}/script/playlist_builder"
+  command "#{app_dir_path}/script/music_player"
+end
+
 # Example:
 #
 # set :output, "/path/to/my/cron_log.log"
