@@ -7,11 +7,9 @@ module AudioClient
         unless Dir.exist? File.dirname(@file)
           FileUtils.mkdir_p File.dirname(@file)
         end
-        puts "File is exist? #{File.exist? @file}"
         if File.exist? @file
           File.delete @file
         end
-        puts "File is exist? #{File.exist? @file}"
       end
   
       def info(msg)

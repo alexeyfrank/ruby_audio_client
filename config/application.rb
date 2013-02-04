@@ -11,7 +11,7 @@ module AudioClient
     end
     
     def initialize(env, &block)
-      @env = env
+      @@env = env
       instance_eval &block
     end
   end

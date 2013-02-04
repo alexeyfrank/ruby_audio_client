@@ -1,6 +1,11 @@
 # encoding: utf-8
 
-Configus.build :dev do
+user_path = File.expand_path("~")
+playlist_file_path = "#{user_path}/playlist.xspf"
+music_dir_path = "#{user_path}/music"
+FileUtils.mkdir_p(music_dir_path) unless Dir.exist?(music_dir_path)
+
+Configus.build AudioClient::Application.env do
   env :dev do
     timeout_before_sync 10
     sleeping_time_out 5
@@ -31,10 +36,10 @@ Configus.build :dev do
       
     end
   end
-    # 
-    # env :prod, parent: :dev do
-    # end
-    # 
-    # env :test, parent: :dev do
-    # end
+    
+  env :prod, parent: :dev do
+    sync_dir music_dir_path
+    playlist_path playlist_file_path
+  end
+    
 end
