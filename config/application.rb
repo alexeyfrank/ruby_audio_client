@@ -6,9 +6,15 @@ Bundler.require(:default)
 
 module AudioClient 
   class Application
+    
+    def self.base_path
+      File.dirname(File.dirname(File.expand_path(__FILE__)))
+    end
+     
     def self.env
       :dev
     end
+    
     
     def initialize(env, &block)
       @@env = env

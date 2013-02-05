@@ -3,5 +3,6 @@
 require File.dirname(File.absolute_path(__FILE__)) + "/../config/application"
 
 AudioClient::Application.new(:dev) do
+  AudioClient::MusicPlayer.stop
   AudioClient::MusicPlayer.start
 end
