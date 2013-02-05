@@ -17,6 +17,6 @@ AudioClient::Application.new do
     puts e.class
     puts e.message
     puts e.backtrace
-    sleep(20)
+    sleep(20) 
   end
 end
