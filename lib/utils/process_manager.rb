@@ -7,9 +7,8 @@ module AudioClient
       end
       
       def self.kill_all_processes
-        puts current_pid = Process.pid
-        pids = self.get_pids('ruby_audio_client/script')
-        puts pids.include?(current_pid)
+        current_pid = Process.pid
+        pids = self.get_pids('script/run')
         pids = pids.delete(current_pid)
         self.kill_processes pids
       end
@@ -25,7 +24,7 @@ module AudioClient
         end
         
         def self.kill_processes(pids)
-          pids.each { |pid| self.kill_process(pid) }
+          pids.each { |pid| self.kill_process(pid) } if pids
         end
         
         def kill_process(pid)
