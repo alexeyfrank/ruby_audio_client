@@ -20,10 +20,10 @@ echo "Load rvm in bash... \n"
 . ~/.bashrc
 
 echo "Installing ruby... \n"
-rvm install 1.9.3-head
+~/.rvm/scripts/rvm install 1.9.3-head
 
 echo "use ruby 1.9.3... \n"
-rvm use 1.9.3-head --default
+~/.rvm/scripts/rvm use 1.9.3-head --default
 
 echo "Install project files: \n"
 
