@@ -24,6 +24,7 @@ end
 
 require 'config'
 require File.dirname(__FILE__) + '/../lib/utils/logger'
+require File.dirname(__FILE__) + '/../lib/utils/process_manager'
 require File.dirname(__FILE__) + '/../lib/file_updater/file_updater'
 require File.dirname(__FILE__) + '/../lib/playlist_builder/playlist_builder'
 require File.dirname(__FILE__) + '/../lib/music_player/music_player'
