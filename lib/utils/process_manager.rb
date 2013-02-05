@@ -2,8 +2,16 @@ module AudioClient
   module Utils
     class ProcessManager  
       
+      def self.start_process(cmd)
+        `#{cmd}`
+      end
+      
       def self.kill_all_processes
-        self.kill_processes self.get_pids('ruby_audio_client/script')
+        puts current_pid = Process.pid
+        pids = self.get_pids('ruby_audio_client/script')
+        puts pids.include?(current_pid)
+        pids = pids.delete(current_pid)
+        self.kill_processes pids
       end
       
       def self.kill_vlc
