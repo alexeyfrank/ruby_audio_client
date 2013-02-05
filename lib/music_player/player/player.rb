@@ -10,35 +10,21 @@ module AudioClient
       end
     
       def start
-        @pid = fork do
-          `cvlc #{@config[:playlist_path]}`
-        end
-        
-        # save_pid @pid
+        `cvlc #{@config[:playlist_path]}`
       end
       
       def stop
         stop_all_processes
-        # Process.kill(@pid) if @pid 
       end
       
       
       def stop_all_processes
-        #pids_path = "#{Application.base_path}/pids/"
-        #FileUtils.mkdir_p(pids_path) unless Dir.exist?(pids_path)
-        
         pids = get_vlc_pids
         pids.each do |pid|
           `kill #{pid}`
-          #Process.kill("TERM", pid)
-          #FileUtils.rm "#{pids_path}#{pid}"
         end
       end
       
-      def save_pid(pid)
-        #file_path = "#{Application.base_path}/pids/#{pid}"
-        #FileUtils.touch(file_path) unless File.exist?(file_path)
-      end
       
       private 
       def get_vlc_pids
