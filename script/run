@@ -10,5 +10,6 @@ AudioClient::Application.new do
   
   AudioClient::FileUpdater.start
   AudioClient::PlaylistBuilder.build
+  AudioClient::MusicPlayer.stop
   AudioClient::MusicPlayer.start
 end
