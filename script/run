@@ -5,7 +5,7 @@ require File.dirname(File.absolute_path(__FILE__)) + "/../config/application"
 
 puts `#{AudioClient::Application.base_path}/script/updater`
 
-AudioClient::Application.new(:dev) do
+AudioClient::Application.new(:prod) do
   AudioClient::FileUpdater.start
   AudioClient::PlaylistBuilder.build
   AudioClient::MusicPlayer.start
