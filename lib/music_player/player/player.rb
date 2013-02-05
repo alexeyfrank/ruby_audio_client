@@ -28,9 +28,10 @@ module AudioClient
         FileUtils.mkdir_p(pids_path) unless Dir.exist?(pids_path)
         
         pids = Dir.entries(pids_path).reject {|f| f == '.' || f == '..' }
+        puts pids.inspect
         pids.each do |pid|
           `kill #{pid}`
-          FileUtils.rm "#{pids_path}pid"
+          FileUtils.rm "#{pids_path}#{pid}"
         end
       end
       
