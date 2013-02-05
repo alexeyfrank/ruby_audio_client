@@ -5,12 +5,12 @@
 
 app_dir_path = File.dirname(File.dirname(File.expand_path(__FILE__)))
 
-set :output, "#{app_dir_path}/logs/cron.log"
+# set :output, "#{app_dir_path}/logs/cron.log"
 
-env :PATH, "#{ENV['PATH']}:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
+# env :PATH, "#{ENV['PATH']}:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
 
 every 1.minute do # Many shortcuts available: :hour, :day, :month, :year, :reboot
-  command "cd #{app_dir_path} && script/run"
+  command "gnome-terminal -c 'cd #{app_dir_path} && script/run'"
   # command "cd #{app_dir_path} && ./script/file_updater"
   # command "cd #{app_dir_path} && ./script/playlist_builder"
   # command "cd #{app_dir_path} && ./script/music_player"
