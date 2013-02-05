@@ -1,0 +1,4 @@
+db/mappings.db
+config/config.rb
+logs/cron.log
+logs/prodiction.log

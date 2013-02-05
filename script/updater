@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require File.dirname(File.absolute_path(__FILE__)) + "/../config/application"
+
+puts `pwd`
+puts `git rm logs/cron.log`
+puts `git rm db/mappings.db --cached`
+puts `git rm config/config.rb --cached`
+# puts `git status`
+# puts `git branch`
+puts `git pull origin master`
