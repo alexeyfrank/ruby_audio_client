@@ -8,4 +8,4 @@ puts `git rm db/mappings.db --cached`
 puts `git rm config/config.rb --cached`
 # puts `git status`
 # puts `git branch`
-puts `git pull origin develop`
+puts `git pull origin master`
