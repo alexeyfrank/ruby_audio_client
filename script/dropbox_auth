@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+require File.dirname(File.absolute_path(__FILE__)) + "/../config/application"
+
+consumer = Dropbox::API::OAuth.consumer(:authorize)
+request_token = consumer.get_request_token
+puts "\nGo to this url and click 'Authorize' to get the token:"
+puts request_token.authorize_url
+
+query = request_token.authorize_url.split('?').last
+params = CGI.parse(query)
+token = params['oauth_token'].first
+
+print "\nOnce you authorize the app on Dropbox, press enter... "
+$stdin.gets.chomp
+
+access_token = request_token.get_access_token(:oauth_verifier => token)
+ 
+# Configuration.write(:access_token, access_token.token)
+# Configuration.write(:access_secret, access_token.secret)
+
+puts "\nAuthorization complete!:"
+puts "\nAccess token:      #{access_token.token}"
+puts "\nAccess secret:     #{access_token.secret}"
+
+puts "\nPlease, edit config/config.rb file for this shop!"

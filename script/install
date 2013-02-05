@@ -14,29 +14,18 @@ echo "Download and install rvm... \n"
 curl -L get.rvm.io | bash -s stable
 
 echo "Modifying .bashrc file for autoloading rvm... \n"
-echo "source ~/.rvm/scripts/'rvm'" >> ~/.bashrc
+echo ". ~/.rvm/scripts/'rvm'" >> ~/.bashrc
 
 echo "Load rvm in bash... \n"
-. ~/.bashrc
+. ~/.rvm/scripts/'rvm'
 
 echo "Installing ruby... \n"
-~/.rvm/bin/rvm install 1.9.3-head
+rvm install 1.9.3-head
 
 echo "use ruby 1.9.3... \n"
-~/.rvm/bin/rvm use 1.9.3-head --default
+rvm use 1.9.3-head --default
 
 echo "Install project files: \n"
 
 bundle install
 whenever --update-crontab
-
-# 
-# echo -e "Did you CHANGE config file?[1, 0]: \c "
-# read res
-# 
-# if [ $res -eq 1 ] ; then
-#     bundle install
-#     whenever
-#     # bundle exec ruby oauth.rb
-#     # echo "Write in /etc/rc.local file sh /path/to/client.sh"
-# fi

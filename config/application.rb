@@ -12,12 +12,11 @@ module AudioClient
     end
      
     def self.env
-      :dev
+      @@env ||= ARGV.length <= 0 ? :dev : ARGV[0]
     end
     
     
-    def initialize(env, &block)
-      @@env = env
+    def initialize(&block)
       instance_eval &block
     end
   end
@@ -28,3 +27,9 @@ require File.dirname(__FILE__) + '/../lib/utils/logger'
 require File.dirname(__FILE__) + '/../lib/file_updater/file_updater'
 require File.dirname(__FILE__) + '/../lib/playlist_builder/playlist_builder'
 require File.dirname(__FILE__) + '/../lib/music_player/music_player'
+
+
+Dropbox::API::Config.app_key    = configus.dropbox_app_key
+Dropbox::API::Config.app_secret = configus.dropbox_app_secret
+Dropbox::API::Config.mode       = configus.dropbox_app_mode
+

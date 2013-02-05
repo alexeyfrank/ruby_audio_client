@@ -13,11 +13,6 @@ require 'sync'
 # the database is in UTC
 ENV["TZ"] = "UTC"
 
-Dropbox::API::Config.app_key    = configus.dropbox_app_key
-Dropbox::API::Config.app_secret = configus.dropbox_app_secret
-Dropbox::API::Config.mode       = configus.dropbox_app_mode
-
-
 module AudioClient
   module FileUpdater
     

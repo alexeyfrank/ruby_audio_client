@@ -2,6 +2,6 @@
 
 require File.dirname(File.absolute_path(__FILE__)) + "/../config/application"
 
-AudioClient::Application.new(:dev) do
+AudioClient::Application.new do
   AudioClient::FileUpdater.start
 end
