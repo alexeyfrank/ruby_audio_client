@@ -9,7 +9,7 @@ app_dir_path = File.dirname(File.dirname(File.expand_path(__FILE__)))
 
 # env :PATH, "#{ENV['PATH']}:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
 
-every :reboot do # Many shortcuts available: :hour, :day, :month, :year, :reboot
+every 1.minute do # Many shortcuts available: :hour, :day, :month, :year, :reboot
   command "cd #{app_dir_path} && ./script/client.sh"
   #command "gnome-terminal -c 'cd #{app_dir_path} && script/run'"
   # command "cd #{app_dir_path} && ./script/file_updater"
