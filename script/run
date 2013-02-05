@@ -6,10 +6,17 @@ require File.dirname(File.absolute_path(__FILE__)) + "/../config/application"
 puts `#{AudioClient::Application.base_path}/script/updater`
 
 AudioClient::Application.new do
-  AudioClient::Utils::ProcessManager.kill_all_processes
+  begin
+    AudioClient::Utils::ProcessManager.kill_all_processes
   
-  AudioClient::FileUpdater.start
-  AudioClient::PlaylistBuilder.build
-  AudioClient::MusicPlayer.stop
-  AudioClient::MusicPlayer.start
+    AudioClient::FileUpdater.start
+    AudioClient::MusicPlayer.stop
+    AudioClient::PlaylistBuilder.build
+    AudioClient::MusicPlayer.start
+  rescue Exception => e
+    puts e.class
+    puts e.message
+    puts e.backtrace
+    sleep(20)
+  end
 end
