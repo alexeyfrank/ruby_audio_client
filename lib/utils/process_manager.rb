@@ -14,7 +14,9 @@ module AudioClient
       end
       
       def self.kill_vlc
-        self.kill_processes self.get_pids('vlc')  
+        pids = self.get_pids('vlc')
+        puts "VLC player PIDs: #{pids.inspect}"
+        self.kill_processes pids
       end
       
       private 
