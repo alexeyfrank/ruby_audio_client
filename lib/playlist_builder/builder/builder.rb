@@ -8,7 +8,7 @@ module AudioClient
       
       def get_adv_blocks_files(day)
         adv_directory_path = File.join(@config[:sync_dir], @config[:adv_blocks_dir], day)
-        Dir.mkdir adv_directory_path unless Dir.exist? adv_directory_path
+        Dir.mkdir_p adv_directory_path unless Dir.exist? adv_directory_path
 
         blocks_count = @config[:blocks_count]
         blocks = []
