@@ -15,9 +15,8 @@ module AudioClient
     end
     
     private 
-    def player
-      @@player ||= Player.new(playlist_path: configus.playlist_path)
-    end
-    
+      def self.player
+        @@player ||= Player.new(playlist_path: configus.playlist_path)
+      end
   end
 end
