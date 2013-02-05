@@ -7,12 +7,16 @@ module AudioClient
   module MusicPlayer
     
     def self.start
-      @@player = Player.new(playlist_path: configus.playlist_path)
-      @@player.start
+      player.start
     end
     
     def self.stop
-      @@player.stop
+      player.stop
+    end
+    
+    private 
+    def player
+      @@player ||= Player.new(playlist_path: configus.playlist_path)
     end
     
   end
