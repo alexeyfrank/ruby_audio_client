@@ -8,7 +8,7 @@ module AudioClient
       
       def self.kill_all_processes
         current_pid = Process.pid
-        pids = self.get_pids('script/run') + self.pids('client.sh')
+        pids = self.get_pids('script/run') + self.get_pids('client.sh')
         pids = pids.delete(current_pid)
         self.kill_processes pids
       end
