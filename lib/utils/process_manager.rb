@@ -29,7 +29,7 @@ module AudioClient
           pids.each { |pid| self.kill_process(pid) } if pids
         end
         
-        def kill_process(pid)
+        def self.kill_process(pid)
           `kill #{pid}`
         end
     end
