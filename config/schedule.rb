@@ -12,7 +12,7 @@ every :reboot do
   command "cd #{app_dir_path} && ./script/client.sh"
 end
 
-every 1.minute do # Many shortcuts available: :hour, :day, :month, :year, :reboot
+every 9.hours do # Many shortcuts available: :hour, :day, :month, :year, :reboot
   command "cd #{app_dir_path} && ./script/client.sh"
 end
 
