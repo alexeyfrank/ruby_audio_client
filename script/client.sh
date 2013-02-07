@@ -4,7 +4,7 @@ current_path=`pwd`
 
 export DISPLAY=:0.0
 
-gnome-terminal -e "$current_path/script/run"
+gnome-terminal -e "$current_path/script/run prod"
 
 # # $KCODE='u'
 # 
